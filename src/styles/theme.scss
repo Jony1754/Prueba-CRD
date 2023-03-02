@@ -1,0 +1,16 @@
+// Theme settings
+
+// VARIABLES
+
+// PAGE SETTINGS
+body {
+  color: var(--color-text);
+  font-size: 13px;
+  font-family: Poppins, sans-serif;
+  background: var(--color-background);
+
+  // Smooth font
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+}
