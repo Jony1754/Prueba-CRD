@@ -1,3 +1,12 @@
+# Solución 
+`npm install` para obtener todas las dependencias
+`npm run dev` en el directorio principal del proyecto 
+
+## Vista previa
+Puede escanear este QR para obtener una vista previa de la rama de **deploy** en su celular y comprobar la vista responsive, o ir a [éste enlace](https://todo-seven-cyan.vercel.app/) para visualizarlo desde su ordenador 
+
+![todoproject](https://user-images.githubusercontent.com/24722106/222598555-aa519999-0cfc-4bb4-89b6-a3a1f55ac654.png)
+
 # Prueba-CRD
 
 Descripción de la prueba técnica  
