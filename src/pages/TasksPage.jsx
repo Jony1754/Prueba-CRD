@@ -1,8 +1,12 @@
 import React from 'react';
 import '../styles/taskPage.scss';
 import Task from '../components/task';
+import { ProgressBar } from 'react-loader-spinner';
+import 'react-loading-skeleton/dist/skeleton.css';
+import { SearchBar } from '../components/searchBar';
+
 const TasksPage = () => {
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState(null);
   const [data, setData] = React.useState(null);
 
@@ -20,16 +24,35 @@ const TasksPage = () => {
         setLoading(false);
       });
   }, []);
-  if (!data) return <p>Loading...</p>;
+  if (!data) {
+    return (
+      <>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+          }}
+        >
+          <ProgressBar
+            height='80'
+            width='80'
+            ariaLabel='progress-bar-loading'
+            wrapperStyle={{}}
+            wrapperClass='progress-bar-wrapper'
+            borderColor='#2d3748ff'
+            barColor='#aeb3b8'
+          />
+        </div>
+      </>
+    );
+  }
 
   return (
     <section className='tasks'>
       <article className='tasks__title'>
         <h2>Newly added tasks</h2>
       </article>
-      <div className='tasks__search'>
-        <input type='text' placeholder='Search' />
-      </div>
+      <SearchBar />
       <article className='tasks__list'>
         {data.map((task) => {
           return (

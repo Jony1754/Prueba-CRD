@@ -1,0 +1,25 @@
+@import '../../styles/theme';
+.tasks__search {
+  text-align: center;
+  padding: 5px;
+  input {
+    transition: 0.3s;
+    background: $input;
+    border: none;
+    border-radius: 5px;
+    padding: 15px;
+    color: $text-color;
+    font-size: 14px;
+    font-family: $secondary-font;
+    font-weight: 700;
+    width: 95%;
+    outline: none;
+    margin: 0 auto;
+  }
+  :focus {
+    transition: 0.3s;
+    width: 100%;
+    outline: none;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+}
