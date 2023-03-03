@@ -27,6 +27,9 @@ const TasksPage = () => {
       <article className='tasks__title'>
         <h2>Newly added tasks</h2>
       </article>
+      <div className='tasks__search'>
+        <input type='text' placeholder='Search' />
+      </div>
       <article className='tasks__list'>
         {data.map((task) => {
           return (
