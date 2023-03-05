@@ -8,7 +8,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  &__delete {
+    cursor: pointer;
+    width: 35px;
+    margin-right: 10px;
+    img {
+      width: 100%;
+    }
+  }
   &__content {
     width: 100%;
   }

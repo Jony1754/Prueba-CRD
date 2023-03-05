@@ -12,10 +12,13 @@ const Layout = ({ children }) => {
       <nav className='navbar'>
         <ul className='navbar__list'>
           <li className='navbar__list-item'>
-            <picture className='navbar__list-item-icon'>
-              <img src={taskIcon} alt='' />
-            </picture>
-            <p>Tasks</p>
+            <>
+              <picture className='navbar__list-item-icon'>
+                <img src={taskIcon} alt='' />
+              </picture>
+              <p>Tasks</p>
+            </>
+            Tasks
           </li>
           <li className='navbar__list-item'>
             <picture className='navbar__list-item-icon'>
