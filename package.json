@@ -15,7 +15,8 @@
     "react-loader-spinner": "^5.3.4",
     "react-loading-skeleton": "^3.1.1",
     "react-router-dom": "^6.8.2",
-    "sass": "^1.58.3"
+    "sass": "^1.58.3",
+    "sweetalert2": "^11.7.3"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",

@@ -1,51 +1,53 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../styles/taskPage.scss';
 import Task from '../components/task';
 import { ProgressBar } from 'react-loader-spinner';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { SearchBar } from '../components/searchBar';
-
+import { AppContext } from '../App';
 const TasksPage = () => {
-  const [loading, setLoading] = React.useState(true);
-  const [error, setError] = React.useState(null);
-  const [data, setData] = React.useState(null);
+  const { todos } = useContext(AppContext);
+  todos.unshift();
+  // const [loading, setLoading] = React.useState(true);
+  // const [error, setError] = React.useState(null);
+  // const [data, setData] = React.useState(null);
 
-  React.useEffect(() => {
-    setLoading(true);
-    fetch('https://jsonplaceholder.typicode.com/todos/')
-      .then((response) => response.json())
-      .then((json) => {
-        setData(json);
-        setLoading(false);
-        console.log('tasks: ', json);
-      })
-      .catch((error) => {
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
-  if (!data) {
-    return (
-      <>
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <ProgressBar
-            height='80'
-            width='80'
-            ariaLabel='progress-bar-loading'
-            wrapperStyle={{}}
-            wrapperClass='progress-bar-wrapper'
-            borderColor='#2d3748ff'
-            barColor='#aeb3b8'
-          />
-        </div>
-      </>
-    );
-  }
+  // React.useEffect(() => {
+  //   setLoading(true);
+  //   fetch('https://jsonplaceholder.typicode.com/todos/')
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       setData(json);
+  //       setLoading(false);
+  //       console.log('tasks: ', json);
+  //     })
+  //     .catch((error) => {
+  //       setError(error);
+  //       setLoading(false);
+  //     });
+  // }, []);
+  // if (!data) {
+  //   return (
+  //     <>
+  //       <div
+  //         style={{
+  //           display: 'flex',
+  //           justifyContent: 'center',
+  //         }}
+  //       >
+  //         <ProgressBar
+  //           height='80'
+  //           width='80'
+  //           ariaLabel='progress-bar-loading'
+  //           wrapperStyle={{}}
+  //           wrapperClass='progress-bar-wrapper'
+  //           borderColor='#2d3748ff'
+  //           barColor='#aeb3b8'
+  //         />
+  //       </div>
+  //     </>
+  //   );
+  // }
 
   return (
     <section className='tasks'>
@@ -54,7 +56,7 @@ const TasksPage = () => {
       </article>
       <SearchBar />
       <article className='tasks__list'>
-        {data.map((task) => {
+        {todos.map((task) => {
           return (
             <Task
               key={task.id}

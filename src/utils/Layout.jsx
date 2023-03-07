@@ -12,19 +12,22 @@ const Layout = ({ children }) => {
       <nav className='navbar'>
         <ul className='navbar__list'>
           <li className='navbar__list-item'>
-            <>
-              <picture className='navbar__list-item-icon'>
-                <img src={taskIcon} alt='' />
-              </picture>
-              <p>Tasks</p>
-            </>
-            Tasks
+            <Link to={'/'}>
+              <>
+                <picture className='navbar__list-item-icon'>
+                  <img src={taskIcon} alt='' />
+                </picture>
+                <p>Tasks</p>
+              </>
+            </Link>
           </li>
           <li className='navbar__list-item'>
-            <picture className='navbar__list-item-icon'>
-              <img src={createIcon} alt='' />
-            </picture>
-            <p>Create</p>
+            <Link to='/create'>
+              <picture className='navbar__list-item-icon'>
+                <img src={createIcon} alt='' />
+              </picture>
+              <p>Create</p>
+            </Link>
           </li>
           <li className='navbar__list-item'>
             <picture className='navbar__list-item-icon'>

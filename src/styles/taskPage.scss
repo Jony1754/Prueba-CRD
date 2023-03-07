@@ -1,10 +1,57 @@
 @import './index.scss';
+@import './theme';
 .tasks {
   &__title {
     font-size: 0.9rem;
     font-weight: 700;
     margin-bottom: 5px;
     padding: 20px;
+  }
+}
+.create__form {
+  background-color: $input;
+  padding: 50px;
+  color: $text-color;
+  border-radius: 10px;
+  margin-top: 100px;
+  &-button {
+    background-color: $secondary-color;
+    color: $text-color;
+    border: none;
+    display: block;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin: 10px auto;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+    :hover {
+      background-color: $primary-color;
+      color: $secondary-color;
+    }
+  }
+  &-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    label {
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    input {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: $text-color;
+      color: $input;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-top: 5px;
+      outline: none;
+    }
   }
 }
 
