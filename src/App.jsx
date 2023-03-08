@@ -11,10 +11,33 @@ function App() {
   const [count, setCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [todos, setTodos] = useState([]);
+  const [deleted, setDeleted] = useState([]);
   const [actions, setActions] = useState({
     addTask: (task) => {
       console.log('updating tasks with: ', task);
-      setTodos((todos) => todos.concat({ title: task.title }));
+      setTodos((todos) => {
+        todos.unshift({ title: task.title, id: task.id });
+
+        const newTodos = [...todos];
+        return newTodos;
+      });
+    },
+    deleteTask: (id) => {
+      console.log('deleting task with id: ', id);
+
+      setTodos((todos) => {
+        const newTodos = todos.filter((todo) => todo.id !== id);
+        return newTodos;
+      });
+    },
+    addDeleted: (id) => {
+      setDeleted((deleted) => {
+        todos.map((todo) => {
+          if (todo.id === id) {
+            deleted.unshift(todo);
+          }
+        });
+      });
     },
   });
 

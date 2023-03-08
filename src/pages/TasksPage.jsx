@@ -59,7 +59,8 @@ const TasksPage = () => {
         {todos.map((task) => {
           return (
             <Task
-              key={task.id}
+              key={task.title}
+              id={task.id}
               title={task.title}
               completed={task.completed}
               description={task.description}

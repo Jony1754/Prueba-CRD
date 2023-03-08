@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import '../../styles/index.scss';
 import './style.scss';
 import deleteIcon from '../../assets/delete-button.svg';
 import { Checkbox } from '../checkbox';
-const Task = ({ title, completed, description }) => {
+import { AppContext } from '../../App';
+
+import Swal from 'sweetalert2';
+
+const Task = ({ title, completed, description, id, key }) => {
+  const { actions } = useContext(AppContext);
+
+  const handleDelete = (id) => {
+    actions.deleteTask(id);
+    Swal.fire('NICE!', 'Task deleted correctly!', 'success');
+  };
   return (
     <div className='task'>
-      <figure className='task__delete'>
+      <figure className='task__delete' onClick={() => handleDelete(id)}>
         <img src={deleteIcon} alt='' />
       </figure>
       <div className='task__content'>
@@ -18,7 +28,7 @@ const Task = ({ title, completed, description }) => {
         </div>
       </div>
       <div className='task__checkbox'>
-        <Checkbox completed={completed} />
+        <Checkbox key={key} completed={completed} />
       </div>
     </div>
   );
