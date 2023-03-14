@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import '../../styles/index.scss';
 import './style.scss';
 import deleteIcon from '../../assets/delete-button.svg';
@@ -6,14 +6,20 @@ import { Checkbox } from '../checkbox';
 import { AppContext } from '../../App';
 
 import Swal from 'sweetalert2';
+import { TailSpin } from 'react-loader-spinner';
 
 const Task = ({ title, completed, description, id, key }) => {
   const { actions } = useContext(AppContext);
-
+  const [taskId, setTaskId] = useState(id);
   const handleDelete = (id) => {
     actions.deleteTask(id);
     Swal.fire('NICE!', 'Task deleted correctly!', 'success');
   };
+
+  useEffect(() => {
+    console.log('mounting task with id: ', taskId);
+  }, []);
+
   return (
     <div className='task'>
       <figure className='task__delete' onClick={() => handleDelete(id)}>
@@ -28,7 +34,7 @@ const Task = ({ title, completed, description, id, key }) => {
         </div>
       </div>
       <div className='task__checkbox'>
-        <Checkbox key={key} completed={completed} />
+        <Checkbox code={taskId} key={key} completed={completed} />
       </div>
     </div>
   );

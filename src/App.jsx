@@ -39,6 +39,19 @@ function App() {
         });
       });
     },
+    updateTask: (id) => {
+      console.log('UPDATE in actions with id:  ', id);
+      debugger;
+      setTodos((todos) => {
+        todos.map((todo) => {
+          if (todo.id === id) {
+            todo.completed = !todo.completed;
+          }
+        });
+        const newTodos = [...todos];
+        return newTodos;
+      });
+    },
   });
 
   useEffect(() => {

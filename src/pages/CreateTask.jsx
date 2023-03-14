@@ -1,4 +1,6 @@
 import React, { useContext, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import '../styles/taskPage.scss';
 import Swal from 'sweetalert2';
@@ -24,7 +26,30 @@ const CreateTask = () => {
         console.log(json);
         console.log('response IN CREATE TASK; ', json);
         actions.addTask(json);
-        Swal.fire('NICE!', 'Task added correctly!', 'success');
+        // Swal.fire('NICE!', 'Task added correctly!', 'success');
+        toast.success('🦄 Task successfully created', {
+          position: 'bottom-center',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
+      })
+      .catch((error) => {
+        console.log('error IN CREATE TASK; ', error);
+        toast.error('🦄 Task not created', {
+          position: 'bottom-center',
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: 'dark',
+        });
       });
   };
 
@@ -52,6 +77,7 @@ const CreateTask = () => {
       <button className='create__form-button' type='submit'>
         ADD TASK
       </button>
+      <ToastContainer />
     </form>
   );
 };
